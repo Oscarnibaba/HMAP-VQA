@@ -1,0 +1,27 @@
+HR:
+  train_file: [ '/data/nfs/qiuchen/hyf/datasets/HR/HR_area/HR_train.json' ]
+  test1_file: [ '/data/nfs/qiuchen/hyf/datasets/HR/HR_area/HR_test.json' ]
+  test2_file: [ '/data/nfs/qiuchen/hyf/datasets/HR/HR_area/HR_test_phili.json' ]
+  answer_list1: '/data/nfs/qiuchen/hyf/datasets/HR/HR_area/answers_list_test.json'
+  answer_list2: '/data/nfs/qiuchen/hyf/datasets/HR/HR_area/answers_list_test_phili.json'
+  vqa_root: '/data/nfs/qiuchen/hyf/datasets/HR/Images_HR/'
+
+vision_path: '/data/nfs/qiuchen/hyf/pretrained_ckp/vision_pth/deit_base_patch16_224-b5f2ef4d.pth'
+image_res: 384      # 480  384  256
+batch_size_train: 16
+batch_size_test: 8
+k_test: 8
+
+alpha: 0.4
+distill: True
+warm_up: True
+
+eos: '[SEP]'
+bert_config: 'configs/config_bert.json'
+
+# optimizer
+init_lr: 2e-5
+weight_decay: 0.05
+#min_lr: 0
+min_lr: 1e-8
+max_epoch: 6

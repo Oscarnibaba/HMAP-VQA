@@ -1,0 +1,45 @@
+# each train_file (json) contains a python list where each item is {'image': img_path, 'caption': text or list_of_text }
+train_file: [
+              '/data/nfs/qiuchen/hyf/datasets/VRSBench/pretrain_data.json'
+#    '/data/nfs/qiuchen/hyf/datasets/VRSBench/imgcap/VRS_captions_test.json',
+#    '/data/nfs/qiuchen/hyf/datasets/VRSBench/imgcap/VRS_captions_train.json'
+#    '/data/nfs/qiuchen/hyf/datasets/pretrain/VRS_caption_list.json'
+#    '/data/nfs/qiuchen/hyf/datasets/pretrain/NWPU-RSICD-imgcap.json',
+#    '/data/nfs/qiuchen/hyf/datasets/pretrain/imgcap_NWPU.json',
+#    '/data/nfs/qiuchen/hyf/datasets/pretrain/Det-10-list.json'
+]
+image_root: '/data/nfs/qiuchen/hyf/datasets/VRSBench/rs_images/'
+imgcap_root: '/data/nfs/qiuchen/hyf/datasets/pretrain/'
+
+
+text_config: '/data/nfs/qiuchen/hyf/pretrained_ckp/bert-base-uncased'
+bert_config: 'configs/config_bert.json'
+
+
+vision_deit_path: '/data/nfs/qiuchen/hyf/pretrained_ckp/vision_pth/deit_base_patch16_224-b5f2ef4d.pth'
+vit_mae_pretrain_path: '/data/nfs/qiuchen/hyf/pretrained_ckp/vision_pth/mae_pretrain_vit_base.pth'
+
+image_res: 256
+vision_width: 768
+embed_dim: 256  # 193 # 129 # 256
+pos_embed_dim: 256
+batch_size: 16
+temp: 0.07
+mlm_probability: 0.15
+queue_size: 66048
+#queue_size: 66096
+momentum: 0.995
+alpha: 0.4
+
+# 语义感知掩码配置
+semantic_masking: true
+vocab_path: "output/remote_sensing_vocab.json"
+
+# optimizer
+weight_decay: 0.05
+init_lr: 3e-4
+min_lr: 1e-6
+warmup_lr: 1e-6
+lr_decay_rate: 0.9
+max_epoch: 30
+warmup_steps: 3000
